@@ -1,10 +1,10 @@
-# ClarityAI — Voice-First AI Tutor for Sight-Impaired Learners
+# Outdoor Learning — Voice-First AI Tutor for Sight-Impaired Learners
 > **AI for Education Hackathon 2026** — Integrated Codebase
 
 ---
 
 ## 🌟 Overview
-ClarityAI transforms visual educational content (diagrams, equations, charts) into vivid, spatial audio descriptions with zero-latency voice interaction. Built specifically for sight-impaired and accessibility-focused learners.
+Outdoor Learning transforms visual educational content (diagrams, equations, charts) into vivid, spatial audio descriptions with zero-latency voice interaction. Built specifically for sight-impaired and accessibility-focused learners.
 
 ---
 

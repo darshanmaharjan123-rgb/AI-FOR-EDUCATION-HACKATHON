@@ -62,7 +62,7 @@ class Handler(BaseHTTPRequestHandler):
         qs     = parse_qs(parsed.query)
 
         if path == "/api/health":
-            self._json({"status": "healthy", "service": "ClarityAI API", "port": PORT})
+            self._json({"status": "healthy", "service": "Outdoor Learning API", "port": PORT})
 
         elif path == "/api/analytics/dashboard":
             uid = qs.get("user_id", ["usr_alex_01"])[0]

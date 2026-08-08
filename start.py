@@ -1,5 +1,5 @@
 """
-ClarityAI — One-Click Startup Script (start.py)
+Outdoor Learning — One-Click Startup Script (start.py)
 1. Seeds SQLite database with study sessions & metrics
 2. Opens frontend in default web browser automatically
 3. Starts REST API Server on http://localhost:5000
@@ -26,7 +26,7 @@ if hasattr(sys.stdout, "reconfigure"):
 
 def main():
     print(f"\n{'='*60}")
-    print("  🚀 Starting ClarityAI — Voice-First AI Tutor Platform")
+    print("  🚀 Starting Outdoor Learning — Voice-First AI Tutor Platform")
     print(f"{'='*60}\n")
 
     # Step 1: Seed database
