@@ -124,3 +124,89 @@ git push -u origin feature/backend
 # Member 3: Set up Database Branch
 git checkout -b feature/database
 git push -u origin feature/database
+
+## gi🎨 UI & Design System: Claymorphism for Accessibility
+
+**ClarityAI** uses a **Claymorphism** design aesthetic—combining tactile, rounded 3D soft-clay elements with high contrast and distinct spatial separation. 
+
+Claymorphism provides tangible, touch-friendly UI boundaries that benefit low-vision users using screen magnifiers, offering depth without the busy clutter of traditional skeuomorphism.
+
+### 1. Core Visual Principles
+- **Soft 3D Depth:** Dual outer directional shadows paired with inner inset lighting create a friendly, floating "clay" look.
+- **Micro-Interactions on Focus:** Claymorphic buttons physically depress (`transform: translateY(2px)`) on keyboard focus or click, providing clear tactile visual feedback.
+- **High Contrast & Accessible Palettes:** All clay cards maintain a strict contrast ratio of **4.5:1 (WCAG AA standard)** against text and background layers.
+
+---
+
+### 2. Claymorphism CSS Architecture
+
+```css
+/* Core Claymorphic Surface Class */
+.clay-card {
+  background: #f0f4f8;
+  border-radius: 24px;
+  box-shadow: 
+    /* Outer soft clay drop shadows */
+    8px 8px 16px #d1d9e6,
+    -8px -8px 16px #ffffff,
+    /* Inner soft top light highlight */
+    inset -4px -4px 8px rgba(0, 0, 0, 0.05),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.9);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Claymorphic Button Hover/Focus State */
+.clay-button {
+  background: #4a90e2;
+  color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 
+    6px 6px 12px rgba(74, 144, 226, 0.4),
+    -6px -6px 12px #ffffff,
+    inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.4);
+}
+
+.clay-button:focus, .clay-button:active {
+  transform: translateY(2px);
+  box-shadow: 
+    2px 2px 4px rgba(74, 144, 226, 0.4),
+    inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+}
+
+3. Tailwind CSS Config Integration (tailwind.config.js)
+
+If using Tailwind CSS on feature/frontend, extend your utility classes for instant clay styling:
+JavaScript
+
+module.exports = {
+  theme: {
+    extend: {
+      borderRadius: {
+        'clay': '24px',
+      },
+      boxShadow: {
+        'clay-card': '8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff, inset -4px -4px 8px rgba(0,0,0,0.05), inset 4px 4px 8px rgba(255,255,255,0.9)',
+        'clay-btn': '6px 6px 12px rgba(74, 144, 226, 0.35), inset -2px -2px 4px rgba(0,0,0,0.2), inset 2px 2px 4px rgba(255,255,255,0.4)',
+        'clay-pressed': 'inset 3px 3px 6px rgba(0,0,0,0.2), inset -3px -3px 6px rgba(255,255,255,0.7)',
+      }
+    }
+  }
+}
+
+4. Clay Components Checklist
+
+    [ ] Clay Voice Orb: Animated pulsing clay bubble indicating AI listening/speaking states.
+
+    [ ] Clay Analytics Cards: Soft 3D container widgets for the Radar & Heatmap charts.
+
+    [ ] High-Contrast Focus Rings: Thick 3px outline around active clay elements for keyboard-only navigation.
+
+
+---
+
+<ElicitationsGroup message="Would you like code snippets for any specific Claymorphic UI components?">
+  <Elicitation label="Get a Claymorphic Voice Orb Component in React" query="Write a React component with Tailwind CSS for a Claymorphic animated voice mic button that reacts when the user speaks."/>
+  <Elicitation label="Get Claymorphic Dashboard Card Components" query="Provide React Tailwind code for Claymorphic analytics cards to display the Voice Engagement metrics."/>
+</ElicitationsGroup>
+
