@@ -1,11 +1,11 @@
-/* ===================================================
-   ClarityAI — Claymorphism Design System
+﻿/* ===================================================
+   ClarityAI ΓÇö Claymorphism Design System
    Warm Orange & Amber Palette
    =================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
 
-/* ── CSS Custom Properties ── */
+/* ΓöÇΓöÇ CSS Custom Properties ΓöÇΓöÇ */
 :root {
   --clay-orange:      #FF6B35;
   --clay-orange-2:    #FF8C61;
@@ -54,7 +54,7 @@
   --transition-soft:  all 0.25s ease;
 }
 
-/* ── Reset & Base ── */
+/* ΓöÇΓöÇ Reset & Base ΓöÇΓöÇ */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -85,7 +85,7 @@ img { max-width: 100%; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; }
 input, textarea { font-family: inherit; }
 
-/* ── Scrollbar ── */
+/* ΓöÇΓöÇ Scrollbar ΓöÇΓöÇ */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--clay-cream-2); }
 ::-webkit-scrollbar-thumb {

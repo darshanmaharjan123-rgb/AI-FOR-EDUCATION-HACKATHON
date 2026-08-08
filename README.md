@@ -1,123 +1,75 @@
-# 🧠 ClarityAI Backend Engine (Visual Studio Code Ready)
-
-A high-performance Node.js, Express & Socket.io backend powering **ClarityAI**—designed with accessibility and Claymorphic UI integration in mind.
-
-It powers real-time audio streaming for the **Clay Voice Orb** and serves data payloads for **Clay Analytics Cards** (Radar & Heatmap charts).
+# ClarityAI — Voice-First AI Tutor for Sight-Impaired Learners
+> **AI for Education Hackathon 2026** — Integrated Codebase
 
 ---
 
-## 🚀 Quick Start in Visual Studio Code
+## 🌟 Overview
+ClarityAI transforms visual educational content (diagrams, equations, charts) into vivid, spatial audio descriptions with zero-latency voice interaction. Built specifically for sight-impaired and accessibility-focused learners.
 
-### 1. Open Folder in VS Code
-Open `C:\Users\DELL\.gemini\antigravity\scratch\clarity-ai-backend` (or your workspace directory) in Visual Studio Code.
+---
 
-### 2. Install Dependencies
-Open the VS Code Terminal (`Ctrl + ~`) and run:
+## 🔗 Architecture — Linked Branches
+
+| Layer | Source Branch | Description |
+|:---|:---|:---|
+| **Frontend** | `Front-end` | WCAG 2.1 AA compliant UI, Voice Orb, Chat Demo, Analytics Dashboard |
+| **Database** | `Database` | SQLite schema, DAO metrics engine, 347-session seed generator |
+| **API Server** | Integrated | REST API (`server.py`) bridging UI to SQLite backend |
+
+---
+
+## 🚀 One-Click Quickstart
+
+### Prerequisites
+- **Python 3.8+** installed (no extra `pip` or `npm` installs required!)
+
+### How to Run
+Run the single launcher command:
+
 ```bash
-npm install
+python start.py
 ```
 
-### 3. Run Development Server
-- **Option A (Terminal):**
-  ```bash
-  npm run dev
-  ```
-- **Option B (VS Code Debugger):**
-  Press **`F5`** or go to `Run and Debug` in VS Code and click **"Launch ClarityAI Backend (F5)"**.
+This will automatically:
+1. Initialize `database.sqlite` and seed 347 realistic learning sessions across 5 subjects.
+2. Open `frontend/index.html` in your default web browser.
+3. Start the REST API server at `http://localhost:5000/api`.
 
 ---
 
-## 📁 Repository & Codebase Architecture
+## 📂 Project Structure
 
 ```
-clarity-ai-backend/
-├── .vscode/
-│   ├── launch.json            # VS Code F5 debug configuration
-│   └── settings.json          # VS Code formatting & editor settings
-├── .env.example               # Environment variables standard
-├── .env                       # Local environment configuration
-├── package.json               # Dependencies & scripts
-├── data/
-│   └── clarity.db             # Auto-generated SQLite database
-├── uploads/                   # Audio recording storage
-├── src/
-│   ├── server.js              # Entry point: HTTP Server & Socket.io initialization
-│   ├── db/
-│   │   └── database.js        # SQLite schema initialization & seed data
-│   ├── routes/
-│   │   ├── voice.routes.js    # /api/voice routes (Audio processing, sessions)
-│   │   ├── analytics.routes.js# /api/analytics routes (Radar & Heatmap chart datasets)
-│   │   └── session.routes.js  # /api/sessions routes (History management)
-│   ├── services/
-│   │   ├── voiceAnalysis.js   # Voice engagement & speech metric engine (WPM, Clarity)
-│   │   ├── analyticsEngine.js # Radar & Heatmap data aggregation logic
-│   │   └── aiVoiceProvider.js # Voice Orb state machine & audio frequency generator
-│   ├── socket/
-│   │   └── voice.socket.js    # Real-time WebSocket connection for Clay Voice Orb
-│   └── middleware/
-│       ├── upload.js          # Multer audio upload middleware
-│       └── errorHandler.js    # Global API error handler
-└── test/
-    └── api.test.js            # Automated verification test script
+integrated/
+├── frontend/
+│   ├── index.html       # WCAG 2.1 AA HTML5 layout
+│   ├── style.css        # Vanilla CSS design system
+│   └── app.js           # Interactive UI logic & REST API bindings
+├── database/
+│   ├── schema.sql       # 7 relational tables & analytics view
+│   ├── db.py            # SQLite connection manager
+│   ├── analytics_dao.py # Dashboard metrics engine
+│   └── seed.py          # 14-day study data generator
+├── server.py            # Python REST API server (port 5000)
+├── start.py             # One-click launcher script
+└── README.md            # Quickstart documentation
 ```
 
 ---
 
-## 📡 API Reference & Endpoints
+## 📡 API Endpoints
 
-### 1. System Health
-- **`GET /api/health`**  
-  *Returns server status and operational metrics.*
-
-### 2. Clay Analytics Cards (Radar & Heatmap)
-- **`GET /api/analytics/engagement`**  
-  *Returns overall voice engagement summary, clarity score, average WPM, and key metrics.*
-- **`GET /api/analytics/radar`**  
-  *Returns 6-axis Radar chart dataset (Tone, Articulation, Pace, Energy, Conciseness, Clarity).*
-- **`GET /api/analytics/heatmap`**  
-  *Returns temporal 7-day x 24-hour speech intensity matrix for Heatmap card.*
-
-### 3. Voice Processing & Audio Upload
-- **`POST /api/voice/process-audio`**  
-  *Accepts multipart audio file (`audio`) or JSON (`transcript`, `durationSeconds`).*
-  *Returns WPM, Clarity Score, Filler Word Count, Pitch Stability, and AI Response.*
-- **`GET /api/voice/states`**  
-  *Returns supported Clay Voice Orb states (`idle`, `listening`, `processing`, `speaking`).*
+- `GET  /api/health` — API health check
+- `GET  /api/analytics/dashboard?user_id=usr_alex_01` — Returns listening hours, streak, comprehension score & topic mastery
+- `GET  /api/visuals/recent` — Recent uploaded visual descriptions
+- `POST /api/auth/signup` — Register new user
+- `POST /api/auth/signin` — User login
+- `POST /api/sessions/chat` — Log voice/text chat turns to database
+- `POST /api/visuals/upload` — Save uploaded document metadata and return spatial audio description
 
 ---
 
-## ⚡ WebSocket Real-Time Interface (Clay Voice Orb)
-
-Connect via Socket.io at `ws://localhost:5000`:
-
-```javascript
-import { io } from 'socket.io-client';
-
-const socket = io('http://localhost:5000');
-
-// Receive live 60fps audio frequency amplitudes to animate 3D clay pulse
-socket.on('orb:visualizer_stream', (data) => {
-  console.log('Frequency amplitudes array:', data.amplitudes); 
-  // Send values to React Clay Voice Orb component
-});
-
-// Send speech input stream
-socket.emit('orb:voice_stream', {
-  transcript: "Hello ClarityAI, checking voice engagement metrics."
-});
-
-// Listen for AI speech responses
-socket.on('orb:speech_response', (data) => {
-  console.log('AI Response:', data.aiResponse);
-  console.log('Metrics:', data.metrics);
-});
-```
-
----
-
-## 🧪 Verification & Testing
-
-Run automated tests against the backend API:
-```bash
-npm test
-```
+## 🏆 Hackathon Team
+- **Frontend Lead**: Accessibility & UI Engineer
+- **Database Lead**: SQLite Schema & Data Architect
+- **Backend/AI Lead**: Voice & API Integration Specialist

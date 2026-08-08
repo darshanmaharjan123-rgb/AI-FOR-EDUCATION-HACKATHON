@@ -180,9 +180,10 @@ class ClarityAPIHandler(BaseHTTPRequestHandler):
             self._set_headers(404)
             self.wfile.write(json.dumps({"error": "Endpoint not found"}).encode("utf-8"))
 
-def run_server():
+def run_server(seed=True):
     print(f"🚀 Initializing database for REST API Server...")
-    seed_database()
+    if seed:
+        seed_database()
     server_address = ("", PORT)
     httpd = HTTPServer(server_address, ClarityAPIHandler)
     print(f"✅ ClarityAI Database REST API Server listening at http://localhost:{PORT}")
@@ -190,6 +191,8 @@ def run_server():
         httpd.serve_forever()
     except KeyboardInterrupt:
         print("\nStopping server.")
+
+run = run_server
 
 if __name__ == "__main__":
     run_server()
