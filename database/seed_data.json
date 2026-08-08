@@ -1,0 +1,78 @@
+{
+  "user": {
+    "id": "usr_alex_01",
+    "name": "Alex Rivera",
+    "email": "alex.rivera@clarity.ai",
+    "accessibility_mode": "voice_first",
+    "vocal_speed_preference": 1.2
+  },
+  "sessions_sample": [
+    {
+      "id": "sess_2026_001",
+      "user_id": "usr_alex_01",
+      "topic": "Cellular Biology: Photosynthesis Flowchart",
+      "session_type": "visual_description",
+      "duration_seconds": 1240,
+      "timestamp": "2026-07-26 14:30:00",
+      "visual_description": {
+        "image_url": "https://clarity-edu.org/assets/photosynthesis_flow.png",
+        "diagram_type": "diagram",
+        "spatial_audio_description": "At 12 o'clock, solar photon energy strikes Thylakoid membranes in the chloroplast. Flowing clockwise to 3 o'clock, light-dependent reactions split water molecules (H2O), producing oxygen gas (O2) release at 4 o'clock and generating ATP energy carriers at 6 o'clock."
+      },
+      "comprehension_logs": [
+        { "sub_topic": "Light-Dependent Reaction", "confidence_score": 88, "detected_gap": null },
+        { "sub_topic": "Calvin Cycle Carbon Fixation", "confidence_score": 52, "detected_gap": "Confused RuBP enzyme binding with NADPH reduction step" }
+      ]
+    },
+    {
+      "id": "sess_2026_002",
+      "user_id": "usr_alex_01",
+      "topic": "Algebra II: Quadratic Equation Graph & Vertex Form",
+      "session_type": "socratic_voice",
+      "duration_seconds": 1580,
+      "timestamp": "2026-07-28 10:15:00",
+      "visual_description": {
+        "image_url": "https://clarity-edu.org/assets/quadratic_parabola.png",
+        "diagram_type": "equation",
+        "spatial_audio_description": "A downward-opening U-shaped parabola. The apex vertex reaches peak height at coordinate (2, 5) near upper center. Two symmetric parabola arms curve downward to cross the horizontal X-axis at X = -1 and X = 5."
+      },
+      "comprehension_logs": [
+        { "sub_topic": "Vertex Coordinates (h, k)", "confidence_score": 94, "detected_gap": null },
+        { "sub_topic": "Discriminant & Complex Roots", "confidence_score": 55, "detected_gap": "Needs review on negative discriminant square roots" }
+      ]
+    }
+  ],
+  "analytics_summary": {
+    "total_listening_hours": 14.5,
+    "audio_retention_rate": 93.3,
+    "voice_confidence_index": 82.4,
+    "top_mastered_topics": [
+      "Vertex Coordinates (h, k)",
+      "Terrestrial Planet Densities",
+      "Axis of Symmetry",
+      "Light-Dependent Reaction"
+    ],
+    "weak_topics": [
+      "Calvin Cycle Carbon Fixation",
+      "Discriminant & Complex Roots",
+      "Kepler's Third Law of Planetary Motion"
+    ],
+    "knowledge_gap_areas": [
+      {
+        "topic": "Calvin Cycle Carbon Fixation",
+        "score": 52,
+        "gap": "Confused RuBP enzyme binding with NADPH reduction step"
+      },
+      {
+        "topic": "Discriminant & Complex Roots",
+        "score": 55,
+        "gap": "Needs review on negative discriminant square roots"
+      },
+      {
+        "topic": "Kepler's Third Law of Planetary Motion",
+        "score": 58,
+        "gap": "Requires audio breakdown of orbital period squared ratio"
+      }
+    ]
+  }
+}
