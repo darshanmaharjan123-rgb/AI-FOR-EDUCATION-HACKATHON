@@ -1,0 +1,52 @@
+{
+  "sessions": [
+    {
+      "id": "sess_101",
+      "user_id": "user_dev",
+      "title": "Product Pitch Rehearsal",
+      "started_at": "2026-08-08T02:46:08.971Z",
+      "duration_seconds": 420,
+      "clarity_score": 92.5,
+      "avg_wpm": 148,
+      "sentiment": "Confident & Clear",
+      "status": "completed"
+    },
+    {
+      "id": "sess_102",
+      "user_id": "user_dev",
+      "title": "Technical Architecture Review",
+      "started_at": "2026-08-08T01:46:08.972Z",
+      "duration_seconds": 890,
+      "clarity_score": 88,
+      "avg_wpm": 135,
+      "sentiment": "Analytical & Calm",
+      "status": "completed"
+    },
+    {
+      "id": "sess_103",
+      "user_id": "user_dev",
+      "title": "Team Sync & Voice Check",
+      "started_at": "2026-08-08T00:46:08.972Z",
+      "duration_seconds": 310,
+      "clarity_score": 95,
+      "avg_wpm": 152,
+      "sentiment": "Engaging",
+      "status": "completed"
+    }
+  ],
+  "audio_analytics": [
+    {
+      "id": "rec_1786160815850",
+      "session_id": "sess_1786160815850",
+      "transcript": "Welcome to ClarityAI. This speech tests pace, tone, and filler word detection.",
+      "wpm": 48,
+      "clarity_score": 79,
+      "pitch_stability": 85,
+      "energy_level": 76,
+      "filler_words_count": 0,
+      "sentiment": "Confident & Clear",
+      "created_at": "2026-08-08T03:46:55.850Z"
+    }
+  ],
+  "analytics_snapshots": []
+}
